@@ -4,11 +4,11 @@ import { router } from "./Routes/Routes/Routes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
 
 export default App;
-// 60 number module er 3 number ta ses and 4 number ta start
+// 60 number module er 4 number ta ses and 5 number ta start
