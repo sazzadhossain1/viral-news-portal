@@ -10,8 +10,18 @@ import { Image } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("user logOut successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <Navbar
       collapseOnSelect
@@ -42,7 +52,19 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+            <Nav.Link href="#deets">
+              {user?.uid ? (
+                <>
+                  <span>{user?.displayName}</span>
+                  <button onClick={handleLogOut}>LogOut</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/register">Register</Link>
+                </>
+              )}
+            </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               {user?.photoURL ? (
                 <Image
