@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
@@ -56,7 +56,9 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   <span>{user?.displayName}</span>
-                  <button onClick={handleLogOut}>LogOut</button>
+                  <Button variant="light" onClick={handleLogOut}>
+                    LogOut
+                  </Button>
                 </>
               ) : (
                 <>
@@ -70,7 +72,7 @@ const Header = () => {
                 <Image
                   style={{ height: "30px" }}
                   roundedCircle
-                  src={user.photoURL}
+                  src={user?.photoURL}
                 ></Image>
               ) : (
                 <FaUser></FaUser>
