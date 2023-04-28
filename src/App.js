@@ -11,4 +11,4 @@ function App() {
 }
 
 export default App;
-// 62 number module er 0 number ta ses and 1 number ta start
+// 62 number module er 1 number ta ses and 2 number ta start
